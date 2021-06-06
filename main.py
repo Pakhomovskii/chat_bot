@@ -7,19 +7,17 @@ print("Bot started...")
 
 
 def start_command(update, context):
-    update.massage.replay_text("""Hello, I'm a very simple chat-bot.
-     Curently, I can only show the current dollar to ruble exchange rate.
+    update.message.reply_text("""Hello, I'm a very simple chat-bot.
+     For now, I can only show the current dollar to ruble exchange rate.
      Type "rate" to get started""")
 
-
 def help_command(update, context):
-    update.massage.reply_text("Ask yourself!")
+    update.message.reply_text("Ask yourself!")
 
 def handle_message(update, context):
     text = str(update.message.text).lower()
     response = R.sample_responses(text)
-
-    update.massage.reply_text(response)
+    update.message.reply_text(response)
 
 
 def error(update, context):
@@ -33,7 +31,7 @@ def main():
     dp.add_handler(CommandHandler('start', start_command))
     dp.add_handler(CommandHandler('help', help_command))
 
-    dp.add_handler(MessageHandler(Filters.text, handle_command))
+    dp.add_handler(MessageHandler(Filters.text, handle_message))
 
     dp.add_error_handler(error)
 

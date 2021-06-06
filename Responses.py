@@ -1,16 +1,18 @@
 from datetime import datetime
-# from currency_converter import CurrencyConverter
+from currency_converter import CurrencyConverter
 
 
 def sample_responses(input_text):
-    user_massage = str(input_text).lower()
+    user_message = str(input_text).lower()
 
-    if user_massage in ("rate"):
+    if user_message in ("rate"):
         now = datetime.now()
         date_time = now.strftime("%d/%m/%y ")
-        
-        # course = c.convert(100, 'EUR', 'USD')       
+        c = CurrencyConverter()
+        course = c.convert(1, 'USD', 'RUB')       
 
-        return str(date_time)
+        return str(f"""taday is {date_time} \
+            and Ruble's exchange rate  is \
+                 {course}""")
     
     return "I don't understad you =("

@@ -9,10 +9,9 @@ def sample_responses(input_text):
         now = datetime.now()
         date_time = now.strftime("%d/%m/%y ")
         c = CurrencyConverter()
-        course = c.convert(1, 'USD', 'RUB')       
-
-        return str(f"""taday is {date_time} \
-            and Ruble's exchange rate  is \
-                 {course}""")
+        course = c.convert(1, 'USD', 'RUB')
+        course = str(round(course, 2))
+        return str(f"""
+        taday is {date_time}\nand Ruble's exchange rate  is {course}""")
     
     return "I don't understad you =("

@@ -8,7 +8,7 @@ print("Bot started...")
 
 def start_command(update, context):
     update.message.reply_text("""Hello, I'm a very simple chat-bot.
-     For now, I can only show the current dollar to ruble exchange rate.
+     For now, I can only show the current dollar to the ruble exchange rate.
      Type "rate" to get started""")
 
 def help_command(update, context):
